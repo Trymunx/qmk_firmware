@@ -22,7 +22,7 @@ enum custom_keycodes {
 };
 
 // Hyper when held, escape when pressed.
-#define HYP_ESC MT(MOD_HYPR, KC_ESC)
+#define HYP_ESC MT(MOD_RGUI, KC_ESC)
 
 // These are for discord mappings
 #define ALT_HOM RALT(KC_HOME)
@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* Keymap Fn Layer
      * ,----------------------------------------------------------------.
-     * |~ `|F1 |F2 |F3 |F4 |F5 |F6 |F7 |F8 |F9 |F10|F11|F12|Del    |Ins |
+     * |~ `|F1 |F2 |F3 |F4 |F5 |F6 |F7 |F8 |F9 |F10|F11|F12| Ins   |Pscr|
      * |----------------------------------------------------------------|
      * |     |   |Up |   |   |   |   |   |PSc|SLk|Pau|Up |   |     |    |
      * |----------------------------------------------------------------|
