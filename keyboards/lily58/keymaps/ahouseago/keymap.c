@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,     KC_BSPC,
   KC_TAB,   KC_Q,   KC_W,    KC_F,    KC_P,    KC_B,                     KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,  KC_MINS,
   HYP_ESC,  KC_A,   KC_R,    KC_S,    KC_T,    KC_G,                     KC_M,    KC_N,    KC_E,    KC_I,    KC_O,     KC_QUOT,
-  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_D,    KC_V,DF(_QWERTY),KC_NUBS, KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,  KC_RSFT,
+  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_D,    KC_V, KC_GRV, KC_NUBS, KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,  KC_RSFT,
                         KC_LCTL, KC_LALT, MO(_LOWER), KC_BSPC, KC_ENT,LT(_UPPER,KC_SPC), MO(_RAISE), KC_LGUI
 ),
 /* QWERTY
@@ -89,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
   KC_TAB,   KC_G,   KC_Q,    KC_W,    KC_E,    KC_R,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
   KC_ESC,   KC_B,   KC_A,    KC_S,    KC_D,    KC_F,                     KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-  KC_LCTL,  KC_LSFT,KC_Z,    KC_X,    KC_C,    KC_V, KC_T, DF(_COLEMAK), KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_RSFT,
+  KC_LCTL,  KC_LSFT,KC_Z,    KC_X,    KC_C,    KC_V, KC_T, KC_NUBS, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_RSFT,
                         KC_LCTL, KC_LALT, MO(_LOWER), KC_SPC, KC_ENT, KC_SPC, MO(_RAISE), KC_LALT
 ),
 /* LOWER
