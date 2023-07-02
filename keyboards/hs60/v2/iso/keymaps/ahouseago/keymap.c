@@ -48,11 +48,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   KC_PSCR,
     KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     _______,  RESET  ,
     _______,  KC_LBRC,  KC_RBRC,  KC_LCBR,  KC_RCBR,  _______,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  _______,  _______,  _______,  _______,
-    _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_NUTD,  KC_EQL,   KC_MINS,  KC_PLUS,  _______,            _______,
+    _______,  KC_NUBS,  _______,  _______,  _______,  _______,  _______,  KC_NUTD,  KC_EQL,   KC_MINS,  KC_PLUS,  _______,            _______,
     _______,  _______,  _______,                                _______,                                _______,  MO(5),    _______,  _______),
 
 [3] = LAYOUT_60_iso(
-    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  ALT_INS,
+    _______,  _______,  _______,  _______,  _______,  _______,  KC_BTN1,  KC_BTN1,  KC_BTN1,  KC_BTN1,  _______,  _______,  _______,  ALT_INS,
     _______,  KC_BTN1,  KC_MS_U,  KC_BTN2,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
     _______,  KC_MS_L,  KC_MS_D,  KC_MS_R,  _______,  _______,  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,  _______,  _______,  ALT_HOM,
     _______,  _______,  KC_BTN3,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            PTT_RET,
@@ -104,7 +104,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                         set_mods(mod_state);
                         return false;
                     }
-                } else { // On release of KC_BSPC 
+                } else { // On release of KC_BSPC
                     // In case KC_DEL is still being sent even after the release of KC_BSPC
                     if (delkey_registered) {
                         unregister_code(KC_DEL);
