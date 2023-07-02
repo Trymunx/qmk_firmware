@@ -18,11 +18,11 @@ enum layer_number {
 #define ALT_INS RALT(KC_INS)
 #define PTT_RET RALT(S(KC_ENT))
 
-#define MOD_PST LCTL(KC_V)
-#define MOD_EXT LCTL(KC_D)
-#define MOD_CPY LCTL(KC_C)
-#define MOD_CUT LCTL(KC_X)
 #define MOD_UND LCTL(KC_Z)
+#define MOD_CUT LCTL(KC_X)
+#define MOD_CPY LCTL(KC_C)
+#define MOD_EXT LCTL(KC_D)
+#define MOD_PST LCTL(KC_V)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -109,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT(
   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_NUHS,
-  KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_COLN,
+  KC_ESC,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_COLN,
   _______, MOD_UND, MOD_CUT, MOD_CPY, MOD_EXT, MOD_PST,LCTL(KC_B),_______,LSFT(KC_NUHS), KC_UNDS, KC_PLUS,_______,_______,_______,
                              _______, _______, _______, _______, _______,  _______, _______, _______
 ),
