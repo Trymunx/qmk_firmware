@@ -14,7 +14,7 @@ enum layer_number {
 // These are for discord mappings
 #define TOG_DEF RALT(KC_HOME)
 #define TOG_MUT RALT(KC_INS)
-#define PTT_RET RALT(S(KC_ENT))
+#define KC_PTT RALT(S(KC_ENT))
 
 #define MOD_UND LCTL(KC_Z)
 #define MOD_CUT LCTL(KC_X)
@@ -110,9 +110,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [3] = LAYOUT(
   XXXXXXX, XXXXXXX,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 /*_______, _______,        _______, _______, _______, _______,                     _______, _______, _______, _______, _______, KC_PSCR, */
-    RGB_TOG, KC_F1,   KC_F2,   KC_F3,    KC_F4,   KC_F5,            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-    RGB_HUI, RGB_SAI, RGB_VAI, KC_BTN2, KC_MS_U, KC_BTN1,          KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, XXXXXXX,
-    RGB_HUD, RGB_SAD, RGB_VAD, KC_MS_L, KC_MS_D, KC_MS_R,          QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    RGB_TOG, KC_F1,   KC_F2,   KC_F3,    KC_F4,   KC_F5,                    KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
+    RGB_HUI, RGB_SAI, RGB_VAI, KC_BTN2, KC_MS_U, KC_BTN1,                   KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, XXXXXXX,
+    RGB_HUD, RGB_SAD, RGB_VAD, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                              _______, _______, _______,  _______,  _______,  _______, _______, _______
 )
 /* ADJUST
