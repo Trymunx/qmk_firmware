@@ -19,7 +19,7 @@
 
 // Hyper when held, escape when pressed.
 #define HYP_ESC MT(MOD_RGUI, KC_ESC)
-#define MEN_SUP MT(MOD_RALT, KC_APP)
+#define MEN_ALT MT(MOD_RALT, KC_APP)
 
 // These are for discord mappings
 #define ALT_HOM RALT(KC_HOME)
@@ -28,32 +28,36 @@
 
 // Non-US Tilde (~)
 #define KC_NUTD S(KC_NUHS)
-#define MOD_UND LCTL(KC_Z)
 #define MOD_CUT LCTL(KC_X)
 #define MOD_CPY LCTL(KC_C)
 #define MOD_EXT LCTL(KC_D)
 #define MOD_PST LCTL(KC_V)
+
+#define CTLT_Z  CTL_T(KC_Z)
+#define CTLT_SL CTL_T(KC_SLSH)
+#define CTLT_BS CTL_T(KC_NUBS)
+#define CTLT_HS CTL_T(KC_NUHS)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [0] = LAYOUT_60_iso( /* COLEMAK */
     KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,  KC_BSPC,
     KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_B,     KC_J,     KC_L,     KC_U,     KC_Y,     KC_SCLN,  KC_LBRC,  KC_RBRC,
     HYP_ESC,  KC_A,     KC_R,     KC_S,     KC_T,     KC_G,     KC_M,     KC_N,     KC_E,     KC_I,     KC_O,     KC_QUOT,  KC_NUHS, KC_ENT,
-    KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_D,     KC_V,     KC_NUBS,  KC_K,     KC_H,     KC_COMM,  KC_DOT,   KC_SLSH,           KC_RSFT,
+    KC_LSFT,  CTLT_Z,   KC_X,     KC_C,     KC_D,     KC_V,     KC_NUBS,  KC_K,     KC_H,     KC_COMM,  KC_DOT,   CTLT_SL,           KC_RSFT,
     KC_LCTL,  KC_LALT,  MO(5),                                  KC_SPC,                                 MO(2),    MO(3)  ,  MEN_ALT,  MO(4)),
 
 [1] = LAYOUT_60_iso( /* QWERTY */
     KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,  KC_BSPC,
     KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,
     HYP_ESC,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,  KC_NUHS, KC_ENT,
-    KC_LSFT,  KC_NUBS,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,           KC_RSFT,
+    KC_LSFT,  CTLT_BS,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   CTLT_SL,           KC_RSFT,
     KC_LCTL,  KC_LGUI,  KC_LALT,                                KC_SPC,                                 MO(2),    MO(3)  ,  MEN_ALT,  MO(4)),
 
 [2] = LAYOUT_60_iso( /* FN */
     KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   KC_PSCR,
     KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     _______,  _______,
     _______,  KC_LBRC,  KC_RBRC,  KC_LCBR,  KC_RCBR,  _______,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  _______,  _______,  _______,  _______,
-    _______,  KC_NUBS,  _______,  _______,  _______,  _______,  _______,  KC_NUTD,  KC_EQL,   KC_MINS,  KC_PLUS,  _______,            _______,
+    _______,  CTLT_BS,  _______,  _______,  _______,  _______,  _______,  KC_NUTD,  KC_EQL,   KC_MINS,  KC_PLUS,  _______,            _______,
     _______,  _______,  _______,                                _______,                                _______,  _______,  _______,  _______),
 
 [3] = LAYOUT_60_iso(
@@ -74,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   KC_DEL,
     KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     _______,  _______,
     _______,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_COLN,  _______,  _______,
-    _______,  MOD_UND,  MOD_CUT,  MOD_CPY,  MOD_EXT,  MOD_PST, LCTL(KC_B),_______,  _______,  _______,  _______,  _______,            _______,
+    _______,  CTLT_BS,  MOD_CUT,  MOD_CPY,  MOD_EXT,  MOD_PST, LCTL(KC_B),_______,  _______,  _______,  _______,  _______,            _______,
     _______,  _______,  _______,                             LALT(KC_SPACE),                            _______,  _______,  _______,  _______),
 };
 
@@ -122,4 +126,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
     }
     return true;
+}
+
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case CTL_T(KC_Z):
+        case CTL_T(KC_SLSH):
+        case CTL_T(KC_NUBS):
+        case CTL_T(KC_NUHS):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        default:
+            // Do not select the hold action when another key is pressed.
+            return false;
+    }
 }
