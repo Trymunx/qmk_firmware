@@ -39,14 +39,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [1] = LAYOUT(
     KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,              KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
-    _______,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,           KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_COLN,
+    KC_LGUI,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,           KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_COLN,
     _______,  KC_LCTL,  MOD_CUT,  MOD_CPY,  MOD_EXT,  MOD_PST,           _______,  _______,  _______,  _______,  _______,  _______,
                                             _______,  _______,  KC_ENT,  _______,  _______
   ),
 
   [2] = LAYOUT(
     _______, _______,        _______,  _______,  _______,   _______,            KC_MPRV,  KC_VOLD,  KC_VOLU,  KC_MNXT, TOG_DEF,        KC_PSCR,
-    KC_LGUI, KC_LBRC,        KC_RBRC,  KC_LCBR,  KC_RCBR,   _______,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT, TOG_MUT,        KC_PTT,
+    _______, KC_LBRC,        KC_RBRC,  KC_LCBR,  KC_RCBR,   _______,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT, TOG_MUT,        KC_PTT,
     _______, CTL_T(KC_NUBS), _______,  _______,  _______,   _______,            GB_TILD,  KC_EQL,   KC_MINS,  KC_PLUS, CTL_T(KC_NUHS), _______,
                                             _______,  _______,LCTL(KC_BSPC),_______, _______
   ),
