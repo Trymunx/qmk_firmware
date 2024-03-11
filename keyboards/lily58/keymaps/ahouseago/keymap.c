@@ -14,7 +14,7 @@ enum layer_number {
 // These are for discord mappings
 #define TOG_DEF RALT(KC_HOME)
 #define TOG_MUT RALT(KC_INS)
-#define KC_PTT RALT(S(KC_ENT))
+#define KC_PTT  RALT(S(KC_ENT))
 
 #define MOD_UND LCTL(KC_Z)
 #define MOD_CUT LCTL(KC_X)
@@ -89,13 +89,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,        KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,        KC_MPLY,
   HYP_ESC,  KC_A,        KC_R,    KC_S,    KC_T,    KC_G,                      KC_M,    KC_N,    KC_E,    KC_I,    KC_O,           KC_QUOT,
   KC_LSFT,  CTL_T(KC_Z), KC_X,    KC_C,    KC_D,    KC_V,  KC_GRV,  KC_MPLY,   KC_K,    KC_H,    KC_COMM, KC_DOT,  CTL_T(KC_SLSH), KC_RSFT,
-                                  KC_LCTL, KC_LALT, MO(1), KC_BSPC, KC_ENT, LT(3,KC_SPC),MO(2),  KC_LGUI
+                                  KC_LCTL, KC_LALT, MO(1), KC_BSPC, KC_ENT,    KC_SPC,  MO(2),  KC_LGUI
 ),
 [1] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 /*KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12, */
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL,
-  KC_ESC,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_COLN,
+  KC_LGUI, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_COLN,
   _______, KC_LCTL, MOD_CUT, MOD_CPY, MOD_EXT, MOD_PST,LCTL(KC_B),_______,LSFT(KC_NUHS), KC_UNDS, _______,_______,_______,_______,
                          _______, _______, _______, LCTL(KC_DEL), KC_ENT,  _______, _______, _______
 ),
@@ -103,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, XXXXXXX,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,        XXXXXXX,
 /*_______, DF(0),          DF(1),   DF(2), _______, _______,                       _______, _______, _______, _______, _______,        KC_PSCR, */
   _______, _______,        _______, _______, _______, _______,                     KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, TOG_DEF,        KC_PSCR,
-   KC_ESC, KC_LBRC,        KC_RBRC, KC_LCBR, KC_RCBR, _______,                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, TOG_MUT,        KC_PTT,
+  _______, KC_LBRC,        KC_RBRC, KC_LCBR, KC_RCBR, _______,                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, TOG_MUT,        KC_PTT,
   _______, CTL_T(KC_NUBS), _______, _______, _______, _______,  _______, KC_PSCR,  GB_TILD, KC_EQL,  KC_MINS, KC_PLUS, CTL_T(KC_NUHS), _______,
                                     _______, _______, _______,  KC_DEL,  _______, _______, _______, _______
 ),
@@ -178,16 +178,6 @@ bool oled_task_user(void) {
     return false;
 }
 #endif // OLED_ENABLE
-
-bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case LT(3, KC_SPC):
-            return true;
-        default:
-            return false;
-    }
-}
-
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
