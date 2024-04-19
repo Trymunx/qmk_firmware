@@ -105,7 +105,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case GL_PIPE:
         if (record->event.pressed) {
             if (get_mods() & MOD_MASK_SHIFT) {
-                SEND_STRING(SS_DOWN(X_LSFT)SS_TAP(X_NUBS)SS_UP(X_LSFT));
+                SEND_STRING(SS_TAP(X_NUBS));
                 SEND_STRING(">");
             } else {
                 SEND_STRING(SS_TAP(X_MINS));
