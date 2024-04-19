@@ -23,6 +23,10 @@ enum layers {
   _ADJUST
 };
 
+enum custom_keycodes {
+    GL_PIPE = SAFE_RANGE
+};
+
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 
@@ -49,10 +53,10 @@ enum layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_DEFAULT] = LAYOUT_ortho_4x12(
-    KC_TAB,   KC_Q,   KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_MPLY,
-    HYP_ESC,  KC_A,   KC_R,    KC_S,    KC_T,    KC_G,    KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
-    KC_LSFT,  CTL_Z,  KC_X,    KC_C,    KC_D,    KC_V,    KC_K,    KC_H,    KC_COMM, KC_DOT,  CT_SLSH, KC_RSFT,
-    _______, _______, _______, KC_LALT, MO(1),   KC_BSPC, KC_ENT,  KC_SPC,  MO(2),   _______, _______, _______
+    KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_MPLY,
+    HYP_ESC, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
+    KC_LSFT, CTL_Z,   KC_X,    KC_C,    KC_D,    KC_V,    KC_K,    KC_H,    KC_COMM, KC_DOT,  CT_SLSH, KC_RSFT,
+    KC_LCTL, KC_NUBS, XXXXXXX, KC_LALT, MO(1),   KC_BSPC, KC_ENT,  KC_SPC,  MO(2),   _______, GL_PIPE, KC_RCTL
 ),
 
 [_LOWER] = LAYOUT_ortho_4x12(
@@ -71,8 +75,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_ADJUST] = LAYOUT_ortho_4x12(
     XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-    XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN2, KC_MS_U, KC_BTN1, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, KC_BTN2, KC_MS_U, KC_BTN1, KC_WH_U    , KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D, QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 )
 
@@ -95,3 +99,20 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
 }
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case GL_PIPE:
+        if (record->event.pressed) {
+            if (get_mods() & MOD_MASK_SHIFT) {
+                SEND_STRING(SS_DOWN(X_LSFT)SS_TAP(X_NUBS)SS_UP(X_LSFT));
+                SEND_STRING(">");
+            } else {
+                SEND_STRING(SS_TAP(X_MINS));
+                SEND_STRING(">");
+            }
+        }
+        break;
+    }
+    return true;
+};
